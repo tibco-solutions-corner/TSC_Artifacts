@@ -8,5 +8,6 @@ https://community.tibco.com/wiki/tibco-solutions-corner for Articles<p>
 
 ----
 ### Using a Circuit Breaker in BWCE
+* https://github.com/tibco-solutions-corner/TSC_Artifacts/blob/master/UsingCircuitBreaker_BWCE.zip
 * https://youtu.be/7k-P67TTK4E
 * https://community.tibco.com/wiki/differentiating-open-circuit-api-error-tibco-businessworks-container-edition
