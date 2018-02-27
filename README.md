@@ -16,3 +16,9 @@ Articles: https://community.tibco.com/wiki/tibco-solutions-corner<p>
 * https://community.tibco.com/wiki/differentiating-open-circuit-api-error-tibco-businessworks-container-edition
 
 For the complete sample including instructions on setting up Hystrix please see: https://github.com/jmhenley5326/BWCE_Showcase#bwce_showcase_circuitbreaker
+
+### Coercing a SFDC Result Set
+* https://github.com/tibco-solutions-corner/TSC_Artifacts/tree/master/CoerceResultSetSFDC
+
+### Creating Standard HTTP Health Checks
+* https://github.com/tibco-solutions-corner/TSC_Artifacts/tree/master/HealthChecks
