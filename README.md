@@ -19,6 +19,10 @@ For the complete sample including instructions on setting up Hystrix please see:
 
 ### Coercing a SFDC Result Set
 * https://github.com/tibco-solutions-corner/TSC_Artifacts/tree/master/CoerceResultSetSFDC
+* https://www.youtube.com/watch?v=lRgCgyMnXis
+* https://community.tibco.com/wiki/coercing-sfdc-result-sets-tibco-businessworks
 
 ### Creating Standard HTTP Health Checks
 * https://github.com/tibco-solutions-corner/TSC_Artifacts/tree/master/HealthChecks
+* https://www.youtube.com/watch?v=jQUPjNjp1P4
+* https://community.tibco.com/wiki/creating-standard-http-container-health-checks-tibco-businessworks
