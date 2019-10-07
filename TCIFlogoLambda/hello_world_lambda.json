@@ -1,0 +1,144 @@
+{
+  "name": "HelloWorldLambda",
+  "type": "flogo:app",
+  "version": "0.0.1",
+  "appModel": "1.0.0",
+  "triggers": [
+    {
+      "id": "lambda_trigger",
+      "ref": "github.com/TIBCOSoftware/flogo-contrib/trigger/lambda",
+      "name": "Lambda Trigger",
+      "description": "AWS Lambda Trigger used to start a flow as a function.",
+      "settings": {},
+      "handlers": [
+        {
+          "action": {
+            "ref": "github.com/TIBCOSoftware/flogo-contrib/action/flow",
+            "data": {
+              "flowURI": "res://flow:hello_world"
+            },
+            "mappings": {
+              "input": [
+                {
+                  "mapTo": "evt",
+                  "type": "assign",
+                  "value": "$.evt"
+                },
+                {
+                  "mapTo": "name",
+                  "type": "assign",
+                  "value": "$.evt.name"
+                }
+              ],
+              "output": [
+                {
+                  "mapTo": "data",
+                  "type": "assign",
+                  "value": "$.data"
+                },
+                {
+                  "mapTo": "status",
+                  "type": "literal",
+                  "value": 200
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "flow:hello_world",
+      "data": {
+        "name": "HelloWorld",
+        "metadata": {
+          "input": [
+            {
+              "name": "evt",
+              "type": "string"
+            },
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "output": [
+            {
+              "name": "data",
+              "type": "object"
+            }
+          ]
+        },
+        "tasks": [
+          {
+            "id": "log_2",
+            "name": "Log Message",
+            "description": "Simple Log Activity",
+            "activity": {
+              "ref": "github.com/TIBCOSoftware/flogo-contrib/activity/log",
+              "input": {
+                "flowInfo": false,
+                "addToFlow": false
+              },
+              "mappings": {
+                "input": [
+                  {
+                    "type": "assign",
+                    "value": "$flow.evt",
+                    "mapTo": "message"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "jsontodata_3",
+            "name": "JSON to Data",
+            "description": "Converts JSON string into a data object",
+            "activity": {
+              "ref": "github.com/jvanderl/flogo-components/activity/jsontodata",
+              "mappings": {
+                "input": [
+                  {
+                    "type": "expression",
+                    "value": "string.concat(string.concat(\"{\\\"data\\\":\\\"\",string.concat(\"Hello \", $flow.name)),\"\\\"}\")",
+                    "mapTo": "input"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "actreply_4",
+            "name": "Reply To Trigger",
+            "description": "Simple Reply Activity",
+            "activity": {
+              "ref": "github.com/TIBCOSoftware/flogo-contrib/activity/actreply",
+              "input": {
+                "mappings": [
+                  {
+                    "mapTo": "data",
+                    "type": "assign",
+                    "value": "$activity[jsontodata_3].data"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "links": [
+          {
+            "from": "log_2",
+            "to": "jsontodata_3"
+          },
+          {
+            "from": "jsontodata_3",
+            "to": "actreply_4"
+          }
+        ]
+      }
+    }
+  ]
+}
