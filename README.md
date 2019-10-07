@@ -26,3 +26,6 @@ For the complete sample including instructions on setting up Hystrix please see:
 * https://github.com/tibco-solutions-corner/TSC_Artifacts/tree/master/HealthChecks
 * https://www.youtube.com/watch?v=jQUPjNjp1P4
 * https://community.tibco.com/wiki/creating-standard-http-container-health-checks-tibco-businessworks
+
+### TCI, Flogo, Lambda
+* https://github.com/tibco-solutions-corner/TSC_Artifacts/tree/master/TCIFlogoLambda
