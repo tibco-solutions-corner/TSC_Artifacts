@@ -29,3 +29,4 @@ For the complete sample including instructions on setting up Hystrix please see:
 
 ### TCI, Flogo, Lambda
 * https://github.com/tibco-solutions-corner/TSC_Artifacts/tree/master/TCIFlogoLambda
+* https://youtu.be/GaViA1ZKlcY
